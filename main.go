@@ -98,7 +98,7 @@ func main() {
 		tmp.Execute(&buf, data)
 		if name == "endpoint" {
 			name = opts.Module
-		} else if name == "params" {
+		} else if name == "params" || name == "issue" {
 
 		} else {
 			name = opts.Module + "_" + name

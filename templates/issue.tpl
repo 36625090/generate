@@ -7,15 +7,10 @@
 package {{.moduleName}}
 
 import (
-	"context"
 	"github.com/36625090/turbo/logical"
+	"github.com/36625090/turbo/logical/codes"
 )
-//update 更新方法
-func (b *backend) update(ctx context.Context, args *logical.Args, reply *logical.Reply) *logical.Error {
-	var req UpdateArgs
-	if err := args.ShouldBindJSON(&req); err != nil {
-		return err
-	}
 
-	return nil
+func sqlIssue(message string) *logical.Error {
+	return logical.NewError(codes.CodeSqlIssue).WithErrStr(message)
 }

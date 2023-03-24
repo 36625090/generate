@@ -8,6 +8,9 @@ package {{.moduleName}}
 
 import (
 	"github.com/36625090/turbo/framework"
+	"github.com/36625090/turbo/logical"
+    "github.com/36625090/turbo/logical/codes"
+    "github.com/hashicorp/go-hclog"
 	"reflect"
 )
 
@@ -27,6 +30,7 @@ func (b *backend) endpoint() *framework.Endpoint {
 			"list": &framework.EndpointOperation{
 				Description: "列表",
 				Callback:    b.list,
+				LogLevel:    hclog.Info,
 				Input:       reflect.TypeOf(ListArgs{}),
 				Output:      reflect.TypeOf([]ListReply{}),
 			},

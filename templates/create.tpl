@@ -11,6 +11,7 @@ import (
 	"github.com/36625090/turbo/logical"
 )
 
+//create 添加方法
 func (b *backend) create(ctx context.Context, args *logical.Args, reply *logical.Reply) *logical.Error {
 	var req CreateArgs
 	if err := args.ShouldBindJSON(&req); err != nil {

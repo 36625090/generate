@@ -11,6 +11,7 @@ import (
 	"github.com/36625090/turbo/logical"
 )
 
+//detail 详情方法
 func (b *backend) detail(ctx context.Context, args *logical.Args, reply *logical.Reply) *logical.Error {
 	var req DetailArgs
 	if err := args.ShouldBindJSON(&req); err != nil {

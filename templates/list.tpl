@@ -13,6 +13,7 @@ import (
 	"github.com/36625090/xorm/pageable"
 )
 
+//list 列表方法
 func (b *backend) list(ctx context.Context, args *logical.Args, reply *logical.Reply) *logical.Error {
 	var req ListArgs
 	if err := args.ShouldBindJSON(&req); nil != err {
@@ -26,7 +27,8 @@ func (b *backend) list(ctx context.Context, args *logical.Args, reply *logical.R
 
 	p, err := b.XormPlus.FindPagination(&{{.moduleName}}, page, &filter)
 	if err != nil {
-		return logical.NewError(codes.CodeSqlIssue).WithErr(err)
+	    b.Logger.Error("query {{.moduleName}}", "err", err)
+		return sqlIssue("查询失败")
 	}
 
 	reply.Data = {{.moduleName}}

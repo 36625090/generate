@@ -11,8 +11,9 @@ import (
 	"github.com/36625090/turbo/logical"
 )
 
+//delete 删除方法
 func (b *backend) delete(ctx context.Context, args *logical.Args, reply *logical.Reply) *logical.Error {
-	var req UpdateArgs
+	var req DeleteArgs
 	if err := args.ShouldBindJSON(&req); err != nil {
 		return err
 	}
