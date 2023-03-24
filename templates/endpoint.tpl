@@ -8,8 +8,6 @@ package {{.moduleName}}
 
 import (
 	"github.com/36625090/turbo/framework"
-	"github.com/36625090/turbo/logical"
-    "github.com/36625090/turbo/logical/codes"
     "github.com/hashicorp/go-hclog"
 	"reflect"
 )
